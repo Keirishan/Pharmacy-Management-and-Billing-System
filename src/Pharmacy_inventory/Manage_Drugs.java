@@ -52,16 +52,16 @@ public class Manage_Drugs extends javax.swing.JFrame {
     {
         String id = txtdcode.getText();
         String drugname = txtdname.getText();
-        Object qty = txtqty.getValue();
+        String qty = txtqty.getText();
         String price = txtprice.getText();
                 
         try {
-            String query = "insert into product(id,drugname,qty,price)values(?,?,?,?)";
+            String query = "insert into product(id,drugname,price,qty)values(?,?,?,?)";
             pst = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, id);
             pst.setString(2, drugname);
-            pst.setObject(3, qty);
-            pst.setString(4, price);
+            pst.setString(4, qty);
+            pst.setString(3, price);
             pst.executeUpdate();
             rs = pst.getGeneratedKeys();
             
@@ -97,8 +97,8 @@ public class Manage_Drugs extends javax.swing.JFrame {
         txtdname = new javax.swing.JTextField();
         txtprice = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtqty = new javax.swing.JSpinner();
         txtadd1 = new javax.swing.JButton();
+        txtqty = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -110,7 +110,7 @@ public class Manage_Drugs extends javax.swing.JFrame {
         jLabel1.setText("Manage Drugs");
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("x");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -206,6 +206,8 @@ public class Manage_Drugs extends javax.swing.JFrame {
             }
         });
 
+        txtqty.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -230,7 +232,7 @@ public class Manage_Drugs extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtdname, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtqty, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtqty, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
@@ -253,17 +255,12 @@ public class Manage_Drugs extends javax.swing.JFrame {
                         .addComponent(txtdname))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtdcode))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 19, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtprice)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtqty)
-                        .addGap(2, 2, 2)))
+                .addGap(18, 19, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtprice)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtqty))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtadd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,7 +323,8 @@ public class Manage_Drugs extends javax.swing.JFrame {
                     String price = rs.getString("price");
                     txtprice.setText(price.trim());
                     
-                    txtqty.requestFocus();
+                    String qty = rs.getString("qty");
+                    txtqty.setText(qty.trim());
                 }
                 
             } catch (SQLException ex) {
@@ -345,7 +343,7 @@ public class Manage_Drugs extends javax.swing.JFrame {
         txtdcode.setText("");
         txtdname.setText("");
         txtprice.setText("");
-        txtqty.setValue("");
+        txtqty.setText("");
     }//GEN-LAST:event_txtadd1MouseClicked
 
     private void txtdeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtdeleteMouseClicked
@@ -361,7 +359,6 @@ public class Manage_Drugs extends javax.swing.JFrame {
                 String Query1 = "Delete from product where id="+DId;
                 Statement Add = con.createStatement();
                 Add.executeUpdate(Query1);
-                Selectproduct();
                 JOptionPane.showMessageDialog(this, "Seller Deleted Successfully");
                 
             } catch (HeadlessException | SQLException e) {
@@ -437,7 +434,7 @@ public class Manage_Drugs extends javax.swing.JFrame {
     private javax.swing.JTextField txtdname;
     private javax.swing.JButton txtedit;
     private javax.swing.JTextField txtprice;
-    private javax.swing.JSpinner txtqty;
+    private javax.swing.JTextField txtqty;
     // End of variables declaration//GEN-END:variables
 
     private void Selectproduct() {
