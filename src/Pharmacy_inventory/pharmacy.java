@@ -167,6 +167,7 @@ public class pharmacy extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtprice = new javax.swing.JTextField();
+        txtdelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -268,6 +269,16 @@ public class pharmacy extends javax.swing.JFrame {
 
         txtprice.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
+        txtdelete.setBackground(new java.awt.Color(255, 255, 255));
+        txtdelete.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtdelete.setForeground(new java.awt.Color(255, 0, 0));
+        txtdelete.setText("Delete");
+        txtdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -287,7 +298,10 @@ public class pharmacy extends javax.swing.JFrame {
                         .addComponent(jLabel8))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(342, 342, 342)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtdelete)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(10, 10, 10)
                 .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -310,7 +324,9 @@ public class pharmacy extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtqty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -379,7 +395,7 @@ public class pharmacy extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -415,9 +431,9 @@ public class pharmacy extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txttcost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -432,7 +448,7 @@ public class pharmacy extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtbal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -557,6 +573,15 @@ public class pharmacy extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void txtdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdeleteActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        int SelectedRowIndex = jTable1.getSelectedRow();
+        model.removeRow(SelectedRowIndex);
+        
+    }//GEN-LAST:event_txtdeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -612,6 +637,7 @@ public class pharmacy extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtbal;
     private javax.swing.JTextField txtdcode;
+    private javax.swing.JButton txtdelete;
     private javax.swing.JTextField txtdname;
     private javax.swing.JTextField txtpay;
     private javax.swing.JTextField txtprice;

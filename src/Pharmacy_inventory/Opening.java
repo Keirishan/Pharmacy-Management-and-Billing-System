@@ -45,7 +45,7 @@ public class Opening extends javax.swing.JFrame {
         Myprogress.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Georgia", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 36)); // NOI18N
         jLabel2.setText("FAMILY MEDICARE PHARMACY");
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\Photos\\3.jpg")); // NOI18N
@@ -62,12 +62,11 @@ public class Opening extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(302, 302, 302)
-                        .addComponent(Percentage)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 59, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(52, 52, 52))
+                        .addComponent(Percentage))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
