@@ -54,3 +54,7 @@ The pharmacy management system provides functions on identify medication usages 
 
 The system will solve the problem of the current system by minimizing time wastage and reduce resources which simply change manual based system to computerized system.
 
+## Contact
+
+- Keirishan Balachandran - [LinkedIn](https://www.linkedin.com/in/balachandran-keirishan-6a5a66197/)
+- Mithurshan Krishnanathan - [Linked In](https://www.linkedin.com/in/krishnanathan-mithurshan-1b9483213/)
