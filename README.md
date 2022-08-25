@@ -1,4 +1,4 @@
-# Pharmarcy Management and Billing System
+# Pharmacy Management and Billing System
 
 ## Abstract
 
